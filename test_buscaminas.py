@@ -36,44 +36,44 @@ class TestBuscaminas(unittest.TestCase):
                            [' ', ' ', '1', 'F', '1', ' ', ' ', ' ']]
         self.assertEqual(buscaminas.win(), True)
 
-    # def test_win_caso2(self):
-    #     buscaminas = Buscaminas(8, 8, 10)
-    #     buscaminas.board = self.caso2
-    #     buscaminas.show = [[' ', ' ', 'F', 'F', ' ', ' ', ' ', 'F'],
-    #                        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-    #                        ['F', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-    #                        [' ', 'F', 'F', ' ', ' ', ' ', ' ', 'F'],
-    #                        [' ', ' ', 'F', ' ', ' ', ' ', ' ', ' '],
-    #                        [' ', 'F', ' ', ' ', ' ', ' ', ' ', ' '],
-    #                        [' ', ' ', 'F', ' ', ' ', ' ', ' ', ' '],
-    #                        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']]
-    #     self.assertEqual(buscaminas.win(), True)
+    def test_win_caso2(self):
+        buscaminas = Buscaminas(8, 8, 10)
+        buscaminas.board = self.caso2
+        buscaminas.show = [[' ', ' ', 'F', 'F', ' ', ' ', ' ', 'F'],
+                           [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                           ['F', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                           [' ', 'F', 'F', ' ', ' ', ' ', ' ', 'F'],
+                           [' ', ' ', 'F', ' ', ' ', ' ', ' ', ' '],
+                           [' ', 'F', ' ', ' ', ' ', ' ', ' ', ' '],
+                           [' ', ' ', 'F', ' ', ' ', ' ', ' ', ' '],
+                           [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']]
+        self.assertEqual(buscaminas.win(), True)
 
-    # def test_lose_caso1(self):
-    #     buscaminas = Buscaminas(8, 8, 10)
-    #     buscaminas.board = self.caso1
-    #     buscaminas.show = [[' ', 'B', ' ', ' ', ' ', ' ', ' ', ' '],
-    #                        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-    #                        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-    #                        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-    #                        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-    #                        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-    #                        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-    #                        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']]
-    #     self.assertEqual(buscaminas.lose(), True)
+    def test_lose_caso1(self):
+        buscaminas = Buscaminas(8, 8, 10)
+        buscaminas.board = self.caso1
+        buscaminas.show = [[' ', 'B', ' ', ' ', ' ', ' ', ' ', ' '],
+                           [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                           [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                           [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                           [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                           [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                           [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+                           [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']]
+        self.assertEqual(buscaminas.lose(), True)
 
-    # def test_lose_caso2(self):
-    #     buscaminas = Buscaminas(8, 8, 10)
-    #     buscaminas.board = self.caso1
-    #     buscaminas.show = [[' ', '1', 'F', 'F', '1', ' ', '1', 'F'],
-    #                        ['1', '2', '2', '2', '1', ' ', '1', '1'],
-    #                        ['B', '3', '2', '1', ' ', ' ', '1', '1'],
-    #                        ['2', 'F', 'F', '2', ' ', ' ', '1', 'F'],
-    #                        ['2', '4', 'F', '2', ' ', ' ', '1', '1'],
-    #                        ['1', 'F', '3', '2', ' ', ' ', ' ', ' '],
-    #                        ['1', '2', 'F', '1', ' ', ' ', ' ', ' '],
-    #                        [' ', '1', '1', '1', ' ', ' ', ' ', ' ']]
-    #     self.assertEqual(buscaminas.lose(), True)
+    def test_lose_caso2(self):
+        buscaminas = Buscaminas(8, 8, 10)
+        buscaminas.board = self.caso1
+        buscaminas.show = [[' ', '1', 'F', 'F', '1', ' ', '1', 'F'],
+                           ['1', '2', '2', '2', '1', ' ', '1', '1'],
+                           ['B', '3', '2', '1', ' ', ' ', '1', '1'],
+                           ['2', 'F', 'F', '2', ' ', ' ', '1', 'F'],
+                           ['2', '4', 'F', '2', ' ', ' ', '1', '1'],
+                           ['1', 'F', '3', '2', ' ', ' ', ' ', ' '],
+                           ['1', '2', 'F', '1', ' ', ' ', ' ', ' '],
+                           [' ', '1', '1', '1', ' ', ' ', ' ', ' ']]
+        self.assertEqual(buscaminas.lose(), True)
 
     # @unittest.mock.patch('builtins.input', side_effect=['uncover', 0, 3])
     # def test_question_uncover(self, values):
