@@ -84,6 +84,7 @@ class TestBuscaminas(unittest.TestCase):
     #     self.assertEqual(row, 0)
     #     self.assertEqual(col, 3)
 
+
     # @unittest.mock.patch('builtins.input', side_effect=['flag', 2, 2])
     # def test_question_flag(self, values):
     #     buscaminas = Buscaminas(5, 5, 8)
