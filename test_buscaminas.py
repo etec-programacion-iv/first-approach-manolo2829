@@ -75,91 +75,91 @@ class TestBuscaminas(unittest.TestCase):
                            [' ', '1', '1', '1', ' ', ' ', ' ', ' ']]
         self.assertEqual(buscaminas.lose(), True)
 
-    # @unittest.mock.patch('builtins.input', side_effect=['uncover', 0, 3])
-    # def test_question_uncover(self, values):
-    #     buscaminas = Buscaminas(5, 5, 8)
-    #     movs = ['flag', 'uncover']
-    #     mov, row, col = buscaminas.question(movs)
-    #     self.assertEqual(mov, 'uncover')
-    #     self.assertEqual(row, 0)
-    #     self.assertEqual(col, 3)
+    @unittest.mock.patch('builtins.input', side_effect=['uncover', 0, 3])
+    def test_question_uncover(self, values):
+        buscaminas = Buscaminas(5, 5, 8)
+        movs = ['flag', 'uncover']
+        mov, row, col = buscaminas.question(movs)
+        self.assertEqual(mov, 'uncover')
+        self.assertEqual(row, 0)
+        self.assertEqual(col, 3)
 
 
-    # @unittest.mock.patch('builtins.input', side_effect=['flag', 2, 2])
-    # def test_question_flag(self, values):
-    #     buscaminas = Buscaminas(5, 5, 8)
-    #     movs = ['flag', 'uncover']
-    #     mov, row, col = buscaminas.question(movs)
-    #     self.assertEqual(mov, 'flag')
-    #     self.assertEqual(row, 2)
-    #     self.assertEqual(col, 2)
+    @unittest.mock.patch('builtins.input', side_effect=['flag', 2, 2])
+    def test_question_flag(self, values):
+        buscaminas = Buscaminas(5, 5, 8)
+        movs = ['flag', 'uncover']
+        mov, row, col = buscaminas.question(movs)
+        self.assertEqual(mov, 'flag')
+        self.assertEqual(row, 2)
+        self.assertEqual(col, 2)
 
-    # @unittest.mock.patch('builtins.input', return_value='bomb')
-    # def test_question_error(self, values):
-    #     buscaminas = Buscaminas(5, 5, 8)
-    #     movs = ['flag', 'uncover']
-    #     with self.assertRaises(Exception):
-    #         mov, row, col = buscaminas.question(movs)
+    @unittest.mock.patch('builtins.input', return_value='bomb')
+    def test_question_error(self, values):
+        buscaminas = Buscaminas(5, 5, 8)
+        movs = ['flag', 'uncover']
+        with self.assertRaises(ValueError):
+            mov, row, col = buscaminas.question(movs)
 
-    # def test_play_uncover(self):
-    #     buscaminas = Buscaminas(8, 8, 10)
-    #     buscaminas.board = self.caso1
-    #     buscaminas.show = [['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                        ['-', '-', '-', '-', '-', '-', '-', '-']]
-    #     buscaminas.play('uncover', 2, 2)
-    #     self.assertEqual(buscaminas.show, [['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '3', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-']])
-    #     buscaminas.play('uncover', 3, 3)
-    #     self.assertEqual(buscaminas.show, [['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '3', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', ' ', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-']])
+    def test_play_uncover(self):
+        buscaminas = Buscaminas(8, 8, 10)
+        buscaminas.board = self.caso1
+        buscaminas.show = [['-', '-', '-', '-', '-', '-', '-', '-'],
+                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                           ['-', '-', '-', '-', '-', '-', '-', '-']]
+        buscaminas.play('uncover', 2, 2)
+        self.assertEqual(buscaminas.show, [['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '3', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-']])
+        buscaminas.play('uncover', 3, 3)
+        self.assertEqual(buscaminas.show, [['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '3', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', ' ', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-']])
 
-    # def test_play_flag(self):
-    #     buscaminas = Buscaminas(8, 8, 10)
-    #     buscaminas.board = self.caso2
-    #     buscaminas.show = [['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                        ['-', '-', '-', '-', '-', '-', '-', '-']]
-    #     buscaminas.play('flag', 0, 2)
-    #     self.assertEqual(buscaminas.show, [['-', '-', 'F', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-']])
-    #     buscaminas.play('flag', 5, 1)
-    #     self.assertEqual(buscaminas.show, [['-', '-', 'F', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', 'F', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-'],
-    #                                        ['-', '-', '-', '-', '-', '-', '-', '-']])
+    def test_play_flag(self):
+        buscaminas = Buscaminas(8, 8, 10)
+        buscaminas.board = self.caso2
+        buscaminas.show = [['-', '-', '-', '-', '-', '-', '-', '-'],
+                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                           ['-', '-', '-', '-', '-', '-', '-', '-']]
+        buscaminas.play('flag', 0, 2)
+        self.assertEqual(buscaminas.show, [['-', '-', 'F', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-']])
+        buscaminas.play('flag', 5, 1)
+        self.assertEqual(buscaminas.show, [['-', '-', 'F', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', 'F', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-'],
+                                           ['-', '-', '-', '-', '-', '-', '-', '-']])
 
 
 
