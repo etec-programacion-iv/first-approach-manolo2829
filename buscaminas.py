@@ -13,9 +13,9 @@ class Buscaminas:
             for x in range(len(self.board[y])):
                 board_position= self.board[y][x]
                 show_position = self.show[y][x]
-                if board_position== 'B':
-                    if show_position != 'F':
-                        passed = False 
+                if board_position== 'B' and show_position != 'F':
+                    passed = False 
+
 
         return passed
 
