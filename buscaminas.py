@@ -8,11 +8,14 @@ class Buscaminas:
         self.show = []
         self.passed = True
 
+    def testRow(self, y):
+        for x in range(len(self.board[y])):
+            if self.board[y][x]== 'B' and self.show[y][x] != 'F':
+                self.passed = False 
+
     def win(self):
         for y in range(len(self.board)):
-            for x in range(len(self.board[y])):
-                if self.board[y][x]== 'B' and self.show[y][x] != 'F':
-                    self.passed = False 
+            self.testRow(y)
         return self.passed
 
     def lose(self):
