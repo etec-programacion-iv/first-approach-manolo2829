@@ -10,17 +10,14 @@ class Buscaminas:
     def win(self):
         aprove = True
         for y in range(len(self.board)):
-            row = self.board[y]
             position_y = y
-            for position_x in range(len(row)):
+            for position_x in range(len(self.board[y])):
                 board_position= self.board[position_y][position_x]
                 show_position = self.show[position_y][position_x]
-                if(board_position== 'B'):
-                    if(show_position == 'F'):
-                        pass
-                    else:
-                        aprove = False 
-
+                if(board_position== 'B' and show_position =='F'):
+                    pass
+                else:
+                    aprove = False 
         return aprove
 
     def lose(self):
