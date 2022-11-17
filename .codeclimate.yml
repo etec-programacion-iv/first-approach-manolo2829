@@ -7,3 +7,11 @@ argument-count:
 similar-code:
     config:
        threshold: 3
+exclude_patterns:
+  - "test"
+  - "test.py"
+  - "test_**"
+  - "test_*"
+  - "**/test/"
+  - "**/tests/"
+  - "Tests/"
