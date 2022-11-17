@@ -6,16 +6,6 @@ class Buscaminas:
         self.bombs = bombs
         self.board = []
         self.show = []
-        self.a
-
-    # def hola(self):
-    #     for position_x in range(len(self.board[y])):
-    #         board_position= self.board[position_y][position_x]
-    #         show_position = self.show[position_y][position_x]
-    #         if(board_position== 'B' and show_position =='F'):
-    #             pass
-    #         else:
-    #             passed = False 
 
     def win(self):
         passed = True
@@ -23,10 +13,10 @@ class Buscaminas:
             for x in range(len(self.board[y])):
                 board_position= self.board[y][x]
                 show_position = self.show[y][x]
-                if(board_position== 'B' and show_position =='F'):
-                    pass
-                else:
-                    passed = False 
+                if board_position== 'B':
+                    if show_position != 'F':
+                        passed = False 
+
         return passed
 
     def lose(self):
